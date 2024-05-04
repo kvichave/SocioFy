@@ -1,0 +1,24 @@
+{% extends "template.html" %} {% block template %}
+{% load static %}
+
+
+<div class="flex pt-12 px-6 md:px-20  items-center justify-center bg-slate-900  bg-hero md:h-screen overflow-hidden">
+    <div class="flex flex-col  gap-6 md:flex-row items-center max-w-8xl">
+        <div class="w-full md:w-1/2 lg:pr-32">
+            <h2 class="text-4xl lg:text-5xl text-center md:text-left text-blue-300 leading-tight font-medium">There's a better way to see your insights.</h2>
+            <h3
+                class="mt-6 md:mt-10 text-md lg:text-xl text-center md:text-left text-gray-200 font-light tracking-wider leading-relaxed">
+                Unlock the Power of Social Media Analysis: Gain Deeper Insights, Make Informed Decisions, and Drive Success with Our Cutting-Edge Platform
+            </h3>
+            <div class="mt-10 flex flex-col sm:flex-row justify-center md:justify-start">
+                <a class="w-full sm:w-40 px-4 py-3 rounded font-semibold text-md bg-blue-500 text-white border-2 border-blue-500" href="/accounts/">Get started</a>
+                
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+            <img src="{% static 'im1.png' %}">
+        </div>
+    </div>
+</div>
+
+{% endblock template %}

@@ -1,0 +1,174 @@
+{% extends "template.html" %} {% block template %}
+<div
+  class="flex flex-col h-full w-full border-dashed border-4 border-grey-600 rounded-lg bg-teal-400s p-10 m-10 inline-block"
+>
+  <div class="p-8 rounded-lg  mb-4 border-2">
+    <h1 class="my-4 text-white font-mono text-2xl text-center">Demographic Data</h1>
+
+
+
+    <div class="mb-4" id="accordion-collapse" data-accordion="collapse">
+      <h2 id="accordion-collapse-heading-1">
+        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3 text-gray-500 dark:text-gray-400" data-accordion-target="#accordion-collapse-body-1" aria-expanded="false" aria-controls="accordion-collapse-body-1">
+          <span>Gender Distribution</span>
+          <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+          </svg>
+        </button>
+      </h2>
+      <div id="accordion-collapse-body-1" class="hidden w-full" aria-labelledby="accordion-collapse-heading-1">
+        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+          <div class="p-4  m-4">
+            <div id="gender_fig-div"></div>
+          </div>  
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-4" id="accordion-collapse-2" data-accordion="collapse">
+      <h2 id="accordion-collapse-heading-2">
+        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3 text-gray-500 dark:text-gray-400" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+          <span>Age Group Distribution</span>
+          <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+          </svg>
+        </button>
+      </h2>
+      <div id="accordion-collapse-body-2" class="hidden w-full" aria-labelledby="accordion-collapse-heading-1">
+        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+          <div class="p-4 m-4">
+            <div id="age_fig-div"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="mb-4" id="accordion-collapse-3" data-accordion="collapse">
+      <h2 id="accordion-collapse-heading-2">
+        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3 text-gray-500 dark:text-gray-400" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+          <span>City wise Distribution</span>
+          <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+          </svg>
+        </button>
+      </h2>
+      <div id="accordion-collapse-body-3" class="hidden w-full" aria-labelledby="accordion-collapse-heading-3">
+        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+          <div class="p-4 m-4">
+            <div id="city_fig-div"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mb-4" id="accordion-collapse-4" data-accordion="collapse">
+      <h2 id="accordion-collapse-heading-4">
+        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3 text-gray-500 dark:text-gray-400" data-accordion-target="#accordion-collapse-body-4" aria-expanded="false" aria-controls="accordion-collapse-body-4">
+          <span>country wise Distribution</span>
+          <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+          </svg>
+        </button>
+      </h2>
+      <div id="accordion-collapse-body-4" class="hidden w-full" aria-labelledby="accordion-collapse-heading-4">
+        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+          <div class="p-4 m-4">
+            <div id="country_fig-div"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+  <div class="p-8 rounded-lg border-2">
+    <h1 class="my-4 text-white font-mono text-2xl text-center">Posts published in period</h1>
+
+    <div class="p-4 m-4">
+      <div id="postana_fig-div"></div>
+    </div>
+  </div>
+
+
+  <div class="my-4" id="accordion-collapse-5" data-accordion="collapse">
+    <h2 id="accordion-collapse-heading-5">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right border border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3 text-gray-500 dark:text-gray-400" data-accordion-target="#accordion-collapse-body-5" aria-expanded="false" aria-controls="accordion-collapse-body-5">
+        <span>Posts and reels</span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-collapse-body-5" class="hidden w-full" aria-labelledby="accordion-collapse-heading-5">
+      <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+        
+        <div class="flex flex-row justify-center items-center">
+          <div class="slider w-1/3 rounded-lg overflow-x-scroll">
+            <div class="flex">
+              {% for media_url in images %}
+              <div class="w-full m-2 rounded-lg flex-shrink-0">
+                <img src="{{ media_url }}" alt="Image" class="rounded-lg w-full h-auto" />
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+      
+          <div class="slider w-1/3 rounded-lg mb-32 overflow-x-scroll">
+            <div class="flex">
+              {% for media_url in videos %}
+              <div class="w-full m-2 rounded-lg flex-shrink-0">
+                <video controls>
+                  <source src="{{ media_url }}" class="rounded-lg" type="video/mp4" />
+                </video>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  
+
+{% include "sentiment.html" %}
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+  var gender_fig = {{ gender_fig|safe }};
+  Plotly.newPlot('gender_fig-div', gender_fig.data, gender_fig.layout,{displaylogo: false});
+
+  var age_fig = {{ age_fig|safe }};
+  Plotly.newPlot('age_fig-div', age_fig.data, age_fig.layout,{displaylogo: false});
+
+  var city_fig = {{ city_fig|safe }};
+  Plotly.newPlot('city_fig-div', city_fig.data, city_fig.layout,{displaylogo: false});
+
+  var country_fig = {{ country_fig|safe }};
+  Plotly.newPlot('country_fig-div', country_fig.data, country_fig.layout,{displaylogo: false});
+
+  var postana_fig = {{ postana_fig|safe }};
+  Plotly.newPlot('postana_fig-div', postana_fig.data, postana_fig.layout,{displaylogo: false});
+</script>
+
+{% endblock template %}

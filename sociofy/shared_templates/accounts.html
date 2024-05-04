@@ -1,0 +1,112 @@
+{% extends "template.html" %}
+
+{% block template %}
+<div class="bg-slate-800 flex flex-row w-full h-98 border-dashed border-4 border-grey-600 rounded-lg bg-teal-400s p-10 m-10 inline-block">
+
+
+
+        <!-- Content -->
+        <div class="">
+            <h3 class="text-3xl font-extralight text-white/50">APPS</h3>
+            
+          </div>
+        <div class="flex-1 ml-80 mt-8 px-2 sm:px-0">
+          
+          <div
+            class="mb-10  sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4"
+          >
+            
+
+            <div
+              class="relative group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover"
+            >
+              <img class="w-20 h-20 object-cover object-center rounded-full" 
+
+              {% if facebook_flag is True %}
+              src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png"
+              {%else%}
+              src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png"
+              {%endif%}
+              alt="facebook" />
+              <h4 class="text-white text-2xl font-bold capitalize text-center">
+                Facebook
+              </h4>
+
+                {%if facebook_flag is False%}
+
+              <a  href="{% url 'social:begin' 'facebook' %}" 
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"   >
+                {%else%}
+                <a  href="/remove/" 
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"   >
+                {%endif%}
+
+
+                
+
+        <!-- Show the button if 'facebook' is found -->
+                {%if facebook_flag is True%}
+                     remove {%else%} connect
+                     {%endif%}
+                
+
+
+              </a>
+            </div>
+
+            <div
+              class="relative group bg-gray-900 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-gray-900/80 hover:smooth-hover"
+            >
+              <img
+                class="w-20 h-20 object-cover object-center rounded-full"
+                {%if instagram_flag is True%}
+                src="{{insta_profile_img}}"
+                {%else%}
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png"
+                {%endif%}
+                alt="facebook"
+              />
+              <h4 class="text-white text-2xl font-bold capitalize text-center">
+                Instagram
+              </h4>
+
+               {%if facebook_flag is False%}
+
+              <a  href="{% url 'social:begin' 'facebook' %}" 
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"   >
+                {%else%}
+                <a  href="/remove/" 
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"   >
+                {%endif%}
+
+
+              {%if instagram_flag is True%}
+                remove
+              {%else%}
+              connect
+              {%endif%}
+
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+    
+
+    {% if page_select %} 
+    {% include    'C:/Users/Kunal/Desktop/SocioFy-project/sociofy/facebook/templates/popup.html' %}
+    
+    {% endif %}
+
+
+
+
+
+
+    <script src="" async defer></script>
+
+    {% endblock %} 

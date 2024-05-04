@@ -1,0 +1,79 @@
+{% extends "template.html" %} {% block template %}
+
+{% comment %} {{comments_list}} {% endcomment %}
+
+
+
+<div  class="flex flex-col  mx-auto  md:mb-auto gap-3.5 flex-1 p-4 ">
+    <h2 class="flex gap-3  items-center m-auto text-lg text-white font-bold md:flex-col md:gap-2">
+        List of comments on the post
+    </h2>
+    <ul id="comments_list" class="flex flex-col gap-3.5 w-full sm:max-w-md m-auto">
+        
+    </ul>
+    
+<label for="message" class="block mb-2 text-xl font-medium text-gray-900 dark:text-white">Generated Reply</label>
+<textarea id="message" rows="4" disabled class="block p-2.5 w-full text-3xl text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="......"></textarea>
+</div>
+
+<form style="display: none;"> {% csrf_token %}</form>  
+
+
+
+
+
+
+
+<script>
+    var comments_list={{comments_list|safe}}
+    console.log(comments_list)
+    
+    lists=document.getElementById("comments_list")
+    for(id in comments_list){
+
+
+    lists.innerHTML+=`<button onclick="gen_request(this.value)" value=`+comments_list[id]['id']+` class="inline-flex items-center justify-center p-5 text-base font-medium text-black rounded-lg bg-slate-300 hover:text-gray-900 hover:bg-slate-600 dark:text-gray-800 dark:bg-slate-300 dark:hover:bg-gray-700 dark:hover:text-white">
+        <span class="w-full">`+comments_list[id]['comment']+` </span>
+        <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+        </svg>
+    </button> `
+    }
+    
+
+
+
+
+
+
+function gen_request(value){
+        console.log(value)
+        const csrftoken = $('input[name="csrfmiddlewaretoken"]').val();        
+
+
+  $.ajax({
+    url: "/gen_reply/", // Replace with your view URL pattern name
+    type: "POST", // Adjust to GET if needed for your view
+    data: { 'comment_id': value }, // Optional data to send
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRFToken', csrftoken);
+      },
+    success: function(response) {
+      // Handle the successful response (optional)
+      console.log("response : ",response['reply']);
+      document.getElementById('message').value=response['reply']
+
+      
+      // Update the page content or call other functions based on the response
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      // Handle errors during the AJAX request (optional)
+      console.error("AJAX Error:", textStatus, errorThrown);
+    }
+  });
+
+    }
+    </script> 
+
+
+{% endblock template %}

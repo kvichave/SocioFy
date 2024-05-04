@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js" charset="utf-8"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tailgrids@2.1.0/plugin.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<link
+  href="https://cdn.jsdelivr.net/npm/tailgrids@2.1.0/assets/css/tailwind.min.css"
+  rel="stylesheet"
+/>
+  </head>
+  <body>
+     {% comment "a" %}
+     {{request.user}}
+     {% endcomment %}
+
+    <div class="relative flex bg-slate-800 flex-row min-h-screen ">
+      <div
+        class="sidebar min-h-screen w-[3.35rem] bg-slate-800 overflow-hidden border-r hover:w-56 hover:bg-white hover:shadow-lg"
+      >
+        <div class="flex h-screen flex-col justify-between pt-2 pb-6">
+          <div>
+            <div class="w-max p-2.5">
+            <a href="/">
+              <img
+                src="https://tailus.io/images/logo.svg"
+                class="w-32"
+                alt=""
+              />
+              </a>
+            </div>
+            <ul id="sidemenu" class="mt-6 space-y-2 tracking-wide">
+              <li class="min-w-max">
+              {%if request.path == '/analytics/'%}
+                <a
+                  href="#"
+                  class="relative flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white"
+
+                >
+                {%else%}
+                <a
+                  href="/analytics/"
+                  aria-label="analytics"
+                class="bg group flex items-center space-x-4 rounded-full px-3 py-3 text-gray-600"
+                >
+                {%endif%}
+                <svg             
+                fill="currentColor"
+                class=" h-6 w-6" 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path 
+                fill-rule="evenodd"
+                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                                      clip-rule="evenodd"
+/></svg>
+
+                  <span class="-mr-1 font-medium">Dashboard</span>
+                
+                </a>
+              </li>
+
+              <li class="min-w-max">  
+                {%if request.path == '/accounts/'%}
+                <a
+                  href="/accounts/"
+                  class="relative flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white"
+
+                >
+                {%else%}
+                <a
+                  href="/accounts/"
+                  aria-label="accounts"
+                  class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600"
+
+                >
+                {%endif%}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="-ml-1 h-6 w-6"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="group-hover:text-gray-700">Add</span>
+                </a>
+              </li>
+
+              
+
+              
+
+              
+            </ul>
+          </div>
+
+          <div class="w-max -mb-3">
+            
+          </div>
+
+        </div>
+      </div>
+
+
+
+    {% block template %} {% endblock %}
+
+</div>
+  </body>
+</html>
